@@ -10,10 +10,10 @@ body {
 }
 
 .imgNavbar {
-    background-repeat: no-repeat;
-    background-size: cover;
     max-height: 440px;
-    max-width: 100%;
+    width: 100%;
+    margin: auto;
+
 }
 
 a {
