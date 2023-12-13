@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,7 +18,7 @@
     <!--i vari data-translate-key che vedete su ogni riga, servono solo per la traduzione, non inficiano sul css o sulle function di javascript-->
     <header class="header">
 
-        <a href="homepage.html"> <img src="backNav.jpeg" class="imgNavbar" /> </a>
+        <a href="index.html"> <img src="backNav.jpeg" class="imgNavbar" /> </a>
 
         <input class="menu-btn" id="menu-btn" type="checkbox" />
         <label class="menu-icon" for="menu-btn">
@@ -27,10 +27,10 @@
 
         <ul class="menu">
 
-            <li> <a class="navbarElements" href="homepage.html" data-translate-key="home">Home</a> </li>
-            <li> <a class="navbarElements" href="autenticazioneClienti.html" data-translate-key="areaClienti"> Area clienti</a> </li>
-            <li> <a class="navbarElements" href="autenticazioneTecnici.html" data-translate-key="areaTecnici"> Area tecnici</a> </li>
-            <li> <a class="navbarElements" style="background-color: #1E1065;color:white;"href="gestioneAnagraficaDellaClientela.html" data-translate-key="registrati"> Registrati</a> </li>
+            <li> <a class="navbarElements" href="index.html" data-translate-key="home">Home</a> </li>
+            <!-- <li> <a class="navbarElements" href="autenticazioneClienti.html" data-translate-key="areaClienti"> Area clienti</a> </li>-->
+            <li> <a class="navbarElements" href="autenticazioneTecnici.html" data-translate-key="areaTecnici">Login</a> </li>
+            <li> <a class="navbarElements" style="background-color: #1E1065;color:white;" href="gestioneAnagraficaDellaClientela.html" data-translate-key="registrati"> Registrati</a> </li>
             <li> <a class="navbarElements" href="contatti.html" data-translate-key="contatti"> Contatti</a> </li>
             <li class="bandiere" id="language-selector">
                 <button class="itCss" data-lang="it"> <img class="buttonImg" src="bandItaliana.jpg" /></button>
@@ -235,8 +235,15 @@
                 document.invio.confermapassword.focus();
             } else {
                 alert(translations[document.documentElement.lang].grazieMessage);
+                const testoDaPassare = "<p class='it'> " + nome + "<br>" + cognome + "<br>" + email + "<br>" + telefono + "<br>" + indirizzo + "<br></p>";
 
-                document.invio.submit();
+                // Codifica il testo per l'URL
+                const testoCodificato = encodeURIComponent(testoDaPassare);
+                // Crea l'URL con il parametro "testo" e passa il testo codificato 
+
+                const urlDestinazione = "datiRicevutiGrazie.html?testo=" + testoCodificato;
+                // Reindirizza alla pagina di destinazione
+                window.location.href = urlDestinazione;
                 //crea array con elementi cliente
                 var array = [];
                 array.push(nome);
@@ -276,7 +283,7 @@
                 contatti: "Contatti",
                 registrati: "Registrati",
                 areaClienti: "Area clienti",
-                areaTecnici: "Area tecnici",
+                areaTecnici: "Login",
                 nome: "Nome:",
                 cognome: "Cognome:",
                 indirizzo: "Indirizzo:",
@@ -327,7 +334,7 @@
                 contatti: "Contact",
                 registrati: "Sign it",
                 areaClienti: "Customer area",
-                areaTecnici: "Technical Area",
+                areaTecnici: "Login",
                 nome: "Name:",
                 cognome: "Surname:",
                 indirizzo: "Address:",
