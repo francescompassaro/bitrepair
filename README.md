@@ -8,3 +8,4 @@ password: admin
 
 utente: francesco 
 password: francesco
+<img src="https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif" />
